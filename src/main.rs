@@ -1,15 +1,22 @@
-
+use std::io::stdin;
 
 mod utils {
 pub mod utility;
 }
 mod model;
 
+use crate::model::custom::Person;
+
 
 
 #[allow(dead_code)]
 fn main() {
  println!("Writing rust"); 
+  let mut text = String::new();
+let r = stdin().read_line(&mut text).unwrap();
+println!("text entered {:?}", text);
+println!(" number of bytes read {:?}", r);
+
  let product_name  = "Location";   
  let provider = String::from("James");
  let price  = 10.2;
@@ -39,6 +46,7 @@ println!("cost is {}", cost);
 println!("provider after moving {}", provider);
 let sum = utils::utility::add_numbers(3,4);
 println!("sum of the numbers is {}", sum);
+
 
 let color = "red";
 
@@ -107,7 +115,7 @@ for digit in 0..10 {
 
 }
 
-let mut person1 = model::custom::Person::new(String::from("James"), String::from("Kirk"), 18, String::from("12, MOleye Street, Alagomeji, Yaba, Lagos"), String::from("08034567890"), String::from("james.clark@gmail.com"));
+let mut person1 = Person::new(String::from("James"), String::from("Kirk"), 18, String::from("12, MOleye Street, Alagomeji, Yaba, Lagos"), String::from("08034567890"), String::from("james.clark@gmail.com"));
 println!("person1 is {}", person1.first_name);
 person1.add_hobby(String::from("reading"));
 person1.add_hobby(String::from("dancing"));
