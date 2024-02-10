@@ -1,3 +1,5 @@
+
+#[derive(Debug)]
 pub struct Person{
     pub first_name: String,
     pub last_name: String,
@@ -18,7 +20,7 @@ impl Person {
 
 
       //another static method that creates objects of the Person structure
-  pub fn get_instance(first_name: String, last_name: String) -> Person {
+  pub fn _get_instance(first_name: String, last_name: String) -> Person {
       Person{ first_name, last_name, age:0, address: String::new(), phone_number: String::new(), email: String::new(), hobbies: Vec::new() }
    }
     pub fn add_hobby(&mut self, hobby: String){

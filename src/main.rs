@@ -1,4 +1,5 @@
-use std::io::stdin;
+
+use std::env;
 
 mod utils {
 pub mod utility;
@@ -12,10 +13,18 @@ use crate::model::custom::Person;
 #[allow(dead_code)]
 fn main() {
  println!("Writing rust"); 
-  let mut text = String::new();
-let r = stdin().read_line(&mut text).unwrap();
-println!("text entered {:?}", text);
-println!(" number of bytes read {:?}", r);
+ let variables = env::var("USER");
+ match variables {
+    Ok(value) => println!("hi{:?}", value),
+    Err(e) => println!("error: {}", e),
+     
+ }
+ 
+ 
+//   let mut text = String::new();
+// let r = stdin().read_line(&mut text).unwrap();
+// println!("text entered {:?}", text);
+// println!(" number of bytes read {:?}", r);
 
  let product_name  = "Location";   
  let provider = String::from("James");
@@ -116,7 +125,7 @@ for digit in 0..10 {
 }
 
 let mut person1 = Person::new(String::from("James"), String::from("Kirk"), 18, String::from("12, MOleye Street, Alagomeji, Yaba, Lagos"), String::from("08034567890"), String::from("james.clark@gmail.com"));
-println!("person1 is {}", person1.first_name);
+println!("person1 is {:?}", person1);
 person1.add_hobby(String::from("reading"));
 person1.add_hobby(String::from("dancing"));
 let mut hobbies = person1.get_hobbies();
